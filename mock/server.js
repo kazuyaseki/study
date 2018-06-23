@@ -11,15 +11,18 @@ const cors = require('cors');
 
 const resolvers = {
   Query: {
-    user() {
+    activity() {
+      return { id: 'hoge', topicId: 'hoge', content: 'hoge', date: '20180622' };
+    },
+    topic() {
       return { name: 'hoge', id: 'hoge' };
     }
   }
 };
 
 const schema = makeExecutableSchema({
-  typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql')).toString(),
-  resolvers
+  resolvers,
+  typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql')).toString()
 });
 
 const app = express();

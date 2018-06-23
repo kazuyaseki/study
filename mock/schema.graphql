@@ -1,8 +1,16 @@
-type User {
+type Topic {
   id: ID!
-  name: String!
+  name: String!  
+}
+
+type Activity {
+  id: ID!
+  topicId: ID!
+  content: String!
+  date: String!
 }
 
 type Query {
-  user: User!
+  topic: Topic!
+  activity: Activity!
 }
